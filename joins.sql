@@ -73,4 +73,15 @@ WHERE (comments.body LIKE '%SSL%' OR comments.body LIKE '%firewall%')
 AND posts.content LIKE '%nemo%';
 
 
+-- Additional Queries --
+SELECT COUNT(comments.body) 
+FROM COMMENTS 
+JOIN posts ON comments.post_id = posts.id
+WHERE posts.created_at > '2015-07-14';
+
+SELECT users.* 
+FROM comments
+JOIN users ON comments.user_id = users.id
+WHERE comments.body LIKE '%programming%';
+
 
